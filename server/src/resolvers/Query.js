@@ -12,6 +12,9 @@ const Query = {
   books: {
     books: () => books,
   },
+  teacherData: (_, __, { prisma }) => {
+    return prisma.teacher.findMany();
+  },
 };
 
 module.exports = { Query };
