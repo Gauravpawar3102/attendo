@@ -15,6 +15,12 @@ const Query = {
   teacherData: (_, __, { prisma }) => {
     return prisma.teacher.findMany();
   },
+  classData: (_, __, { prisma }) => {
+    return prisma.class.findMany();
+  },
+  studentData: (_, __, { prisma }) => {
+    return prisma.studentData.findMany();
+  },
 };
 
 module.exports = { Query };

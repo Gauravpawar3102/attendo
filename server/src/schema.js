@@ -19,6 +19,8 @@ const typeDefs = gql`
   type Query {
     books: [Book!]!
     teacherData: [Teacher!]!
+    classData: [Class!]!
+    studentData: [Student!]!
   }
   # Types
   type Teacher {
