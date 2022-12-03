@@ -5,7 +5,7 @@ const books = [
   },
   {
     title: 'City of Glass',
-    author: 'Paul Austehr',
+    author: 'Paul Aussdtehr',
   },
 ];
 const Query = {
