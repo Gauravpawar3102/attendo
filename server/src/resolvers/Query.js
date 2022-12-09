@@ -14,6 +14,11 @@ const Query = {
   },
   teacherData: (_, __, { prisma }) => {
     return prisma.teacher.findMany();
+    //   {
+    //   where:{
+    //     id:1
+    //   }
+    // }
   },
   classData: (_, __, { prisma }) => {
     return prisma.class.findMany();

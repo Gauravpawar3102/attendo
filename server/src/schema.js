@@ -21,6 +21,7 @@ const typeDefs = gql`
     teacherData: [Teacher!]!
     classData: [Class!]!
     studentData: [Student!]!
+    # teacher(userId: ID!): Teacher
   }
   # Types
   type Teacher {

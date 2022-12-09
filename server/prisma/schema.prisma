@@ -16,17 +16,16 @@ model Teacher {
   name      String?
   className String?
   password  String?
-  // classes   Class[]
+  classes   Class[]
 }
 
 model Class {
-  id      Int    @id @default(autoincrement())
-  name    String
-  teacher String
+  id   Int    @id @default(autoincrement())
+  name String
 
-  // Teacher   Teacher?      @relation(fields: [teacherId], references: [id])
-  // teacherId Int?
-  // students  StudentData[]
+  teacher   Teacher?      @relation(fields: [teacherId], references: [id])
+  teacherId Int
+  students  StudentData[]
 }
 
 model StudentData {
@@ -37,6 +36,6 @@ model StudentData {
   status     Boolean  @default(false)
   date       DateTime @default(now())
 
-  // Class   Class? @relation(fields: [classId], references: [id])
-  // classId Int?
+  Class   Class? @relation(fields: [classId], references: [id])
+  classId Int
 }
