@@ -12,6 +12,16 @@ const typeDefs = gql`
       email: String!
       className: String!
     ): TeacherPayLoad
+
+    classCreate(name: String!, teacherId: Int!): ClassPayLoad
+
+    studentCreate(
+      name: String!
+      classId: Int!
+      email: String!
+      rollnumber: Int!
+      status: Boolean!
+    ): StudentPayLoad
   }
   # input
 
@@ -35,8 +45,8 @@ const typeDefs = gql`
   type Class {
     id: ID!
     name: String!
-    teacher: String!
-    students: [Student!]!
+    teacherId: Int!
+    students: [Student]
   }
   type Student {
     id: ID!
@@ -53,6 +63,14 @@ const typeDefs = gql`
   type TeacherPayLoad {
     userErrors: [UserErrors!]!
     teacher: Teacher
+  }
+  type ClassPayLoad {
+    userErrors: [UserErrors!]!
+    class: Class
+  }
+  type StudentPayLoad {
+    userErrors: [UserErrors!]!
+    student: Student
   }
 `;
 

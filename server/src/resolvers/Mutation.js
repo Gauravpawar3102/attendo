@@ -1,4 +1,5 @@
 const { PrismaClient, Prisma } = require('@prisma/client');
+const e = require('express');
 
 const prisma = new PrismaClient();
 const Mutation = {
@@ -22,6 +23,60 @@ const Mutation = {
           name,
           email,
           className,
+        },
+      }),
+    };
+  },
+  classCreate: async (_, { name, teacherId }, __) => {
+    // const { name, email, className } = teacher;
+    if (!name || !teacherId) {
+      return {
+        userErrors: [
+          {
+            message: 'You must provide all the required credentials',
+          },
+        ],
+        class: null,
+      };
+    }
+
+    return {
+      userErrors: [],
+      class: await prisma.class.create({
+        data: {
+          name,
+          teacherId,
+        },
+      }),
+    };
+  },
+
+  studentCreate: async (
+    _,
+    { name, classId, rollnumber, email, status },
+    __
+  ) => {
+    // const { name, email, className } = teacher;
+    if (!name || !classId || !rollnumber || !email || !status) {
+      return {
+        userErrors: [
+          {
+            message: 'You must provide all the required credentials',
+          },
+        ],
+        studentData: null,
+      };
+    }
+
+    return {
+      userErrors: [],
+      studentData: await prisma.studentData.create({
+        data: {
+          name,
+          classId,
+          rollnumber,
+          email,
+          status,
         },
       }),
     };

@@ -11,31 +11,30 @@ datasource db {
 }
 
 model Teacher {
-  id        Int     @id @default(autoincrement())
-  email     String  @unique
-  name      String?
-  className String?
-  password  String?
-  classes   Class[]
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  name     String?
+  password String?
+  classes  Class[]
 }
 
-model Class {
-  id   Int    @id @default(autoincrement())
-  name String
+// take parent.id after authorization
 
-  teacher   Teacher?      @relation(fields: [teacherId], references: [id])
-  teacherId Int
+model Class {
+  id        Int           @id @default(autoincrement())
+  name      String
   students  StudentData[]
+  teacherId Int
+  teacher   Teacher       @relation(fields: [teacherId], references: [id])
 }
 
 model StudentData {
   id         Int      @id @default(autoincrement())
   name       String?
   email      String   @unique
-  rollnumber String   @unique
+  rollnumber Int      @unique
   status     Boolean  @default(false)
   date       DateTime @default(now())
-
-  Class   Class? @relation(fields: [classId], references: [id])
-  classId Int
+  classId    Int      @unique
+  class      Class    @relation(fields: [classId], references: [id])
 }
