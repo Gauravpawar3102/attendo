@@ -20,6 +20,13 @@ const Query = {
     //   }
     // }
   },
+  teacher: (_, { name }, { prisma }) => {
+    return prisma.teacher.findUnique({
+      where: {
+        name,
+      },
+    });
+  },
   classData: (_, __, { prisma }) => {
     return prisma.class.findMany();
   },

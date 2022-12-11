@@ -3,9 +3,9 @@ const e = require('express');
 
 const prisma = new PrismaClient();
 const Mutation = {
-  teacherCreate: async (_, { name, email, className }, __) => {
+  teacherCreate: async (_, { name, email, password }, __) => {
     // const { name, email, className } = teacher;
-    if (!name || !email || !className) {
+    if (!name || !email || !password) {
       return {
         userErrors: [
           {
@@ -22,7 +22,7 @@ const Mutation = {
         data: {
           name,
           email,
-          className,
+          password,
         },
       }),
     };

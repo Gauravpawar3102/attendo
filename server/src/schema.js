@@ -10,7 +10,7 @@ const typeDefs = gql`
     teacherCreate(
       name: String!
       email: String!
-      className: String!
+      password: String!
     ): TeacherPayLoad
 
     classCreate(name: String!, teacherId: Int!): ClassPayLoad
@@ -23,12 +23,11 @@ const typeDefs = gql`
       status: Boolean!
     ): StudentPayLoad
   }
-  # input
-
   # ?Query
   type Query {
     books: [Book!]!
     teacherData: [Teacher!]!
+    teacher(name: String!): Teacher
     classData: [Class!]!
     studentData: [Student!]!
     # teacher(userId: ID!): Teacher
@@ -70,7 +69,7 @@ const typeDefs = gql`
   }
   type StudentPayLoad {
     userErrors: [UserErrors!]!
-    student: Student
+    studentData: Student
   }
 `;
 

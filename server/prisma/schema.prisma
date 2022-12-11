@@ -13,7 +13,7 @@ datasource db {
 model Teacher {
   id       Int     @id @default(autoincrement())
   email    String  @unique
-  name     String?
+  name     String  @unique
   password String?
   classes  Class[]
 }
@@ -35,6 +35,6 @@ model StudentData {
   rollnumber Int      @unique
   status     Boolean  @default(false)
   date       DateTime @default(now())
-  classId    Int      @unique
+  classId    Int
   class      Class    @relation(fields: [classId], references: [id])
 }
