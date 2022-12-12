@@ -23,14 +23,22 @@ const Query = {
   teacher: (_, { name }, { prisma }) => {
     return prisma.teacher.findUnique({
       where: {
-        name,
+        name: String(name),
       },
     });
   },
-  classData: (_, __, { prisma }) => {
+  student: (_, { rollnumber }, { prisma }) => {
+    return prisma.studentData.findUnique({
+      where: {
+        rollnumber: Number(rollnumber),
+      },
+    });
+  },
+  classes: (_, __, { prisma }) => {
     return prisma.class.findMany();
   },
-  studentData: (_, __, { prisma }) => {
+
+  students: (_, __, { prisma }) => {
     return prisma.studentData.findMany();
   },
 };

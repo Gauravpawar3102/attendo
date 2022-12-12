@@ -28,8 +28,9 @@ const typeDefs = gql`
     books: [Book!]!
     teacherData: [Teacher!]!
     teacher(name: String!): Teacher
-    classData: [Class!]!
-    studentData: [Student!]!
+    student(rollnumber: Int): Student
+    classes: [Class!]!
+    students: [Student!]!
     # teacher(userId: ID!): Teacher
   }
   # Types
@@ -38,6 +39,7 @@ const typeDefs = gql`
     email: String!
     name: String!
     className: String!
+
     classes: [Class!]! #create class name
   }
 
@@ -53,6 +55,7 @@ const typeDefs = gql`
     email: String!
     status: Boolean!
     date: Int
+    rollnumber: Int
     classes: [Class!]!
   }
   type UserErrors {

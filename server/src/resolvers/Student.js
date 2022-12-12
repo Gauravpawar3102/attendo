@@ -1,11 +1,11 @@
-const Teacher = {
+const Student = {
   classes: (parent, __, { prisma }) => {
     return prisma.class.findMany({
       where: {
-        teacherId: parent.id,
+        id: parent.classId,
       },
     });
   },
 };
 
-module.exports = { Teacher };
+module.exports = { Student };
