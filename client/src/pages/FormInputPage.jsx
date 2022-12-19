@@ -5,10 +5,6 @@ import { useState } from 'react';
 import StudentForm from '../components/Forms/StudentForm';
 import ClassForm from '../components/Forms/ClassForm';
 
-const MultiStep = () => {
-  return <div className="multistep-container">Step 1</div>;
-};
-
 function FormInputPage() {
   const [state, setState] = useState(0);
   const next = () => {
@@ -38,24 +34,30 @@ function FormInputPage() {
     }
   }
   return (
-    <div className="formpage-container">
+    <>
       <HomeNavbar />
-      <div className="bg-blue-200 flex flex-col items-center">
-        <MultiStep />
 
-        {DisplayMHForm(state)}
-        <div className="">{state}</div>
+      <div className="formpage-container flex flex-col items-center justify-center ">
+        <div className="bg-blue-200 flex flex-col items-center justify-center p-2 max-h-full w-full max-w-2xl m-2">
+          <div className="">{DisplayMHForm(state)}</div>
 
-        <div className="Formbutton-container flex gap-4 ">
-          <div className="left" onClick={prev}>
-            prev
-          </div>
-          <div className="left" onClick={next}>
-            next
+          <div className="Formbutton-container flex gap-4 ">
+            <div
+              className="left cursor-pointer bg-slate-400 px-2 py-1 font-mono font-semibold text-white"
+              onClick={prev}
+            >
+              Back
+            </div>
+            <div
+              className="left  bg-sky-400 px-2 py-1 font-mono font-semibold text-white cursor-pointer"
+              onClick={next}
+            >
+              Next
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
