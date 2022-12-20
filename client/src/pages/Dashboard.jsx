@@ -16,6 +16,7 @@ function Dashboard() {
         <DashboardCard />
         <DashboardCard />
         <DashboardCard />
+        <DashboardCard />
       </div>
     </div>
   );
