@@ -2,16 +2,24 @@ import React from 'react';
 
 function ClassDetails() {
   return (
-    <div className="">
-      <table>
-        <thead>
+    <div className=" flex justify-center items-center mt-4">
+      <table className="table-auto ">
+        <thead className="outline-dashed">
           <tr>
-            <th>asdfsda</th>
+            <th className="px-4 py-2 capitalize">Name</th>
+            <th className="px-4 py-2 capitalize">Roll Number</th>
+            <th className="px-4 py-2 capitalize">status</th>
+            <th className="px-4 py-2 capitalize ">email</th>
+            <th className="px-4 py-2 capitalize">date</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>dsfasd</td>
+            <td className="px-4 py-2">data1</td>
+            <td className="px-4 py-2">data1</td>
+            <td className="px-4 py-2">data1</td>
+            <td className="px-4 py-2">data1</td>
+            <td className="px-4 py-2">data1</td>
           </tr>
         </tbody>
       </table>
