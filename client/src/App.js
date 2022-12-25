@@ -3,9 +3,10 @@ import FormInputPage from './pages/FormInputPage';
 import HomePage from './pages/HomePage';
 import Dashboard from './pages/Dashboard';
 import ClassDetails from './pages/ClassDetails';
-import { ApolloProvider, ApolloClient } from '@apollo/client';
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql',
+  cache: new InMemoryCache(),
 });
 
 function App() {
